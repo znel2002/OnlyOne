@@ -1,0 +1,14 @@
+{
+  "type": "onlyone:robot_part_forge",
+  "ingredients": [
+    {
+      "item": "onlyone:crocanium_ingot",
+      "item": "onlyone:crocanium_ingot",
+      "item": "onlyone:crocanium_ingot",
+      "item": "onlyone:crocanium_ingot"
+    }
+  ],
+  "output": {
+    "item": "onlyone:crocanium_marker"
+  }
+}

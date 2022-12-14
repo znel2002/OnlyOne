@@ -1,0 +1,6 @@
+{
+  "variants" : {
+    "lit=true" : {"model": "onlyone:block/crocanium_lamp_on"},
+    "lit=false" : {"model": "onlyone:block/crocanium_lamp_off"}
+  }
+}

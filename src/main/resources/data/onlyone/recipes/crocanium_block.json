@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "onlyone:crocanium_ingot"
+        }
+    },
+    "result": {
+        "item": "onlyone:crocanium_block"
+    }
+}

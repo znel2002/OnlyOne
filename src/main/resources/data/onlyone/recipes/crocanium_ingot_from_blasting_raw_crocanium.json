@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:blasting",
+  "cookingtime": 50,
+  "experience": 20.0,
+  "group": "crocanium",
+  "ingredient": {
+    "item": "onlyone:raw_crocanium"
+  },
+  "result": "onlyone:crocanium_ingot"
+}
