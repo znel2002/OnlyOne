@@ -26,8 +26,12 @@ public class RobotPartForgeRecipes implements Recipe<SimpleInventory> {
 
     @Override
     public boolean matches(SimpleInventory inventory, World world) {
-
-        return false;
+        for(int i = 0; i < inventory.size()-1; i++){
+            if(!recipeItems.get(i).test(inventory.getStack(i))){
+                return false;
+            }
+        }
+        return true;
     }
 
     @Override
@@ -77,9 +81,9 @@ public class RobotPartForgeRecipes implements Recipe<SimpleInventory> {
             DefaultedList<Ingredient> inputs = DefaultedList.ofSize(4, Ingredient.EMPTY);
             OnlyOneMod.LOGGER.info(String.valueOf(inputs));
 
-            // for (int i = 0; i < inputs.size(); i++) {
-            //     inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
-            // }
+            for (int i = 0; i < inputs.size(); i++) {
+                inputs.set(i, Ingredient.fromJson(ingredients.get(i)));
+            }
 
             return new RobotPartForgeRecipes(id, output, inputs);
         }

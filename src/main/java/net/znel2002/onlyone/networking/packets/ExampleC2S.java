@@ -9,11 +9,12 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.znel2002.onlyone.OnlyOneMod;
 
 public class ExampleC2S {
 
     public static void recieve(MinecraftServer server, ServerPlayerEntity player, ServerPlayNetworkHandler handler, PacketByteBuf buf, PacketSender responseSender) {
-        EntityType.COW.spawn((ServerWorld) player.world, null, null, player, player.getBlockPos(), SpawnReason.COMMAND, true, false);
+        OnlyOneMod.LOGGER.info("Received packet from " + player.getName().toString());
     }
 
 }

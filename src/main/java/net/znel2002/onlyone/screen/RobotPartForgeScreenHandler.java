@@ -19,12 +19,12 @@ public class RobotPartForgeScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
 
     public RobotPartForgeScreenHandler(int syncId, PlayerInventory inventory) {
-        this(syncId, inventory, new SimpleInventory(4), new ArrayPropertyDelegate(2));
+        this(syncId, inventory, new SimpleInventory(5), new ArrayPropertyDelegate(2));
     }
 
     public RobotPartForgeScreenHandler(int syncId, PlayerInventory playerinventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(OnlyOneScreenHandlers.ROBOT_PART_FORGE, syncId);
-        checkSize(inventory, 4);
+        checkSize(inventory, 5);
         this.inventory = inventory;
         inventory.onOpen(playerinventory.player);
         this.propertyDelegate = propertyDelegate;
@@ -55,7 +55,7 @@ public class RobotPartForgeScreenHandler extends ScreenHandler {
     }
 
     @Override
-    public ItemStack transferSlot(PlayerEntity player, int invSlot) {
+    public ItemStack quickMove(PlayerEntity player, int invSlot) {
         ItemStack newStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(invSlot);
         if (slot != null && slot.hasStack()) {
@@ -79,6 +79,7 @@ public class RobotPartForgeScreenHandler extends ScreenHandler {
         return newStack;
     }
 
+
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
@@ -97,4 +98,5 @@ public class RobotPartForgeScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
         }
     }
+
 }

@@ -2,16 +2,16 @@
   "type": "onlyone:robot_part_forge",
   "ingredients": [
     {
-      "item": "onlyone:crocanium_ingot"
+      "item": "onlyone:raw_crocanium"
     },
     {
-      "item": "onlyone:crocanium_ingot"
+      "item": "onlyone:raw_crocanium"
     },
     {
-      "item": "onlyone:crocanium_ingot"
+      "item": "onlyone:raw_crocanium"
     },
     {
-      "item": "onlyone:crocanium_ingot"
+      "item": "onlyone:raw_crocanium"
     }
   ],
   "output": {

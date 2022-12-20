@@ -41,13 +41,13 @@ public class ChargeHUD implements HudRenderCallback {
             text_x = x;
             text_y = y+26;
 
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShader(GameRenderer::getRenderTypeTextProgram);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             RenderSystem.setShaderTexture(0, Full);
 
             DrawableHelper.drawTexture(matrixStack, x, y+256-((IEntityDataSaver) client.player).getPersistentData().getInt("energy"), 0, 0, 64, ((IEntityDataSaver) client.player).getPersistentData().getInt("energy"), 64, 256);
 
-            RenderSystem.setShader(GameRenderer::getPositionTexShader);
+            RenderSystem.setShader(GameRenderer::getPositionTexProgram);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
             RenderSystem.setShaderTexture(0, Battery);
 

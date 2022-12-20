@@ -1,14 +1,18 @@
 package net.znel2002.onlyone.blocks;
 
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.Block;
 import net.minecraft.block.Material;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
+import net.minecraft.item.ItemGroups;
+import net.minecraft.registry.Registries;
+import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
+
 import net.znel2002.onlyone.OnlyOneMod;
 import net.znel2002.onlyone.blocks.custom.CrocaniumLamp;
 import net.znel2002.onlyone.blocks.custom.JumpyBlock;
@@ -34,15 +38,23 @@ public class OnlyOneBlocks {
             new RobotPartForge(FabricBlockSettings.of(Material.STONE).strength(3f)), OnlyOneItemGroup.CROCANIUM);
     private static Block registerBlock(String name, Block block, ItemGroup tab){
         registerBlockItem(name, block, tab);
-        return Registry.register(Registry.BLOCK, new Identifier(OnlyOneMod.MOD_ID, name), block);
+        return Registry.register(Registries.BLOCK, new Identifier(OnlyOneMod.MOD_ID, name), block);
     }
 
     private static Item registerBlockItem(String name, Block block, ItemGroup tab){
-        return Registry.register(Registry.ITEM, new Identifier(OnlyOneMod.MOD_ID,name), new BlockItem(block,new FabricItemSettings().group(tab)));
+        return Registry.register(Registries.ITEM, new Identifier(OnlyOneMod.MOD_ID,name), new BlockItem(block,new FabricItemSettings()));
+
     }
+
 
     public static void registerModBlocks() {
         OnlyOneMod.LOGGER.debug("Registering");
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(CROCANIUM_BLOCK));
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(CROCANIUM_ORE));
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(DEEPSLATE_CROCANIUM_ORE));
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(JUMPYBLOCK));
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(CROCANIUM_LAMP));
+        ItemGroupEvents.modifyEntriesEvent(OnlyOneItemGroup.CROCANIUM).register(entries -> entries.add(ROBOT_PART_FORGE));
     }
 
 }
