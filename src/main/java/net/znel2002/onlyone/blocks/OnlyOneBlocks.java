@@ -35,7 +35,7 @@ public class OnlyOneBlocks {
     public static final Block CROCANIUM_LAMP = registerBlock("crocanium_lamp",
             new CrocaniumLamp(FabricBlockSettings.of(Material.STONE).strength(3f).luminance(state -> state.get(CrocaniumLamp.LIT) ? 15 : 0)), OnlyOneItemGroup.CROCANIUM);
     public static final Block ROBOT_PART_FORGE = registerBlock("robot_part_forge",
-            new RobotPartForge(FabricBlockSettings.of(Material.STONE).strength(3f)), OnlyOneItemGroup.CROCANIUM);
+            new RobotPartForge(FabricBlockSettings.of(Material.STONE).strength(3f).nonOpaque()), OnlyOneItemGroup.CROCANIUM);
     private static Block registerBlock(String name, Block block, ItemGroup tab){
         registerBlockItem(name, block, tab);
         return Registry.register(Registries.BLOCK, new Identifier(OnlyOneMod.MOD_ID, name), block);

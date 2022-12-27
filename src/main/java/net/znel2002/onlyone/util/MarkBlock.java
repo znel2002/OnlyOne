@@ -28,6 +28,7 @@ public class MarkBlock {
         double markedX = saver.getPersistentData().getInt("markedX");
         double markedY = saver.getPersistentData().getInt("markedY");
         double markedZ = saver.getPersistentData().getInt("markedZ");
+        if(markedX == 0 && markedY == 0 && markedZ == 0) return;
         double cameraX = cameraPos.x;
         double cameraY = cameraPos.y;
         double cameraZ = cameraPos.z;
@@ -104,41 +105,43 @@ public class MarkBlock {
         tessellator.draw();
 
         // Quad
+        RenderSystem.setShader(GameRenderer::getPositionColorProgram);
+        RenderSystem.enableBlend();
+        RenderSystem.disableCull();
         bufferBuilder.begin(VertexFormat.DrawMode.QUADS, VertexFormats.POSITION_COLOR);
-        bufferBuilder.vertex(matrix, 0, 0, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 0, 1, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 1, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 0, 0).color(0F, 1F, 0F, 0.1F).next();
+        bufferBuilder.vertex(matrix, 0, 0, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 0, 1, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 1, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 0, 0).color(0F, 1F, 1F, 0.3F).next();
         // next side
-        bufferBuilder.vertex(matrix, 0, 0, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 0, 0, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 0, 1, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 0, 1, 0).color(0F, 1F, 0F, 0.1F).next();
+        bufferBuilder.vertex(matrix, 0, 0, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 0, 0, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 0, 1, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 0, 1, 0).color(0F, 1F, 1F, 0.3F).next();
         // next side
         // Bottom bufferBuilder.vertex(matrix, 0, 0, 0).color(0F, 1F, 0F, 0.1F).next();
         // Bottom bufferBuilder.vertex(matrix, 1, 0, 0).color(0F, 1F, 0F, 0.1F).next();
         // Bottom bufferBuilder.vertex(matrix, 1, 0, 1).color(0F, 1F, 0F, 0.1F).next();
         // Bottom bufferBuilder.vertex(matrix, 0, 0, 1).color(0F, 1F, 0F, 0.1F).next();
         // next side
-        bufferBuilder.vertex(matrix, 1, 0, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 1, 0).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 1, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 0, 1).color(0F, 1F, 0F, 0.1F).next();
+        bufferBuilder.vertex(matrix, 1, 0, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 1, 0).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 1, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 0, 1).color(0F, 1F, 1F, 0.3F).next();
         // next side
         // TOP bufferBuilder.vertex(matrix, 0, 1, 0).color(0F, 1F, 0F, 0.1F).next();
         // TOP bufferBuilder.vertex(matrix, 0, 1, 1).color(0F, 1F, 0F, 0.1F).next();
         // TOP bufferBuilder.vertex(matrix, 1, 1, 1).color(0F, 1F, 0F, 0.1F).next();
         // TOP bufferBuilder.vertex(matrix, 1, 1, 0).color(0F, 1F, 0F, 0.1F).next();
         // next side
-        bufferBuilder.vertex(matrix, 0, 0, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 0, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 1, 1, 1).color(0F, 1F, 0F, 0.1F).next();
-        bufferBuilder.vertex(matrix, 0, 1, 1).color(0F, 1F, 0F, 0.1F).next();
+        bufferBuilder.vertex(matrix, 0, 0, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 0, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 1, 1, 1).color(0F, 1F, 1F, 0.3F).next();
+        bufferBuilder.vertex(matrix, 0, 1, 1).color(0F, 1F, 1F, 0.3F).next();
 
         tessellator.draw();
-
+        RenderSystem.enableCull();
         RenderSystem.enableDepthTest();
-        RenderSystem.enableBlend();
         RenderSystem.enableTexture();
 
 

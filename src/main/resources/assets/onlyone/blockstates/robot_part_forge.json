@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "onlyone:block/robot_part_forge"
+    },
+    "facing=south": {
+      "model": "onlyone:block/robot_part_forge",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "onlyone:block/robot_part_forge",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "onlyone:block/robot_part_forge",
+      "y": 90
+    }
+  }
+}
